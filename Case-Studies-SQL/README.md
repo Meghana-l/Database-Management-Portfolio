@@ -41,12 +41,13 @@ NOTE: Each text file follows a consistent formatting:
 - Microsoft SQL Server 2022
 - SQL Server Management Studio (SSMS)
 
-## 🛠️ Tools & Technologies
+---  
+Feel free to browse through the `.txt` files to see the full solutions.
+
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-Relational%20Database-blue)
 ![T-SQL](https://img.shields.io/badge/T--SQL-Querying-blueviolet)
 ![SSMS](https://img.shields.io/badge/SSMS-Management%20Studio-lightgrey)
 ![Data Analysis](https://img.shields.io/badge/Data--Analysis-SQL%20Queries-green)
-![University of New Haven](https://img.shields.io/badge/University-of%20New%20Haven-blue)
 
----  
-Feel free to browse through the `.txt` files to see the full solutions.
+
+
