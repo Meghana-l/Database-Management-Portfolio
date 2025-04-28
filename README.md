@@ -3,6 +3,7 @@
 This repository showcases a collection of my professional work in database development, ETL (Extract, Transform, Load) workflows, data warehousing design, and OLAP cube analytics.
 
 These projects reflect my skills in building efficient database systems, transforming and loading data, designing warehouse models, and performing multidimensional data analysis.  
+
 The work is inspired by real-world scenarios and developed as part of my advanced coursework in Database Management.
 
 ## 📚 Portfolio Sections
