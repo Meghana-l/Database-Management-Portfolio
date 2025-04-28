@@ -65,12 +65,12 @@ Key highlights:
 ### 📸 Star Schema Visualization
 Below is a simple star schema visualization of the physical design:
 
-![Star Schema Visualization](./Screenshot%202025-04-27%20231348.png)
+![Screenshot 2025-04-27 231348](https://github.com/user-attachments/assets/f5ae9ea0-0328-46f5-9d67-21cbc9916dfa)
 
 ### 📸 Physical Model Diagram 
 Below is the physical model diagram created using SSMS Database Diagramming:
 
-![Physical Model Lab 2](./Meghana_Swamy_DWLab2_physicalModel.png)
+![Meghana_Swamy_DWLab2_physicalModel](https://github.com/user-attachments/assets/d8ce25cf-fdfa-48dd-8c3c-2e331398e0c3)
 
 ---
 
@@ -92,7 +92,7 @@ In this phase, advanced data warehouse modeling techniques were applied to handl
   - Added indexes on key fields in `DimCustomer` to improve query performance, likely on fields such as `CustomerState` and `CustomerCity`.
 
 ### 📸 Extended Physical Model Diagram 
-![Extended Physical Model Homework](./Meghana_Swamy_DWLab_Homework.png)
+![Meghana_Swamy_DWLab_Homework](https://github.com/user-attachments/assets/7cabeb65-67f9-415e-bec6-a7fa3680008d)
 
 ---
 
