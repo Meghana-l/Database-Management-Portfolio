@@ -12,6 +12,7 @@ The destination for all ETL projects is a database called **BI_Database**.
 Throughout the projects, data is extracted from the operational **PracticeDatabase**(uploaded), transformed as needed, and loaded into **BI_Database**.
 Additionally, ETL DW projects involve loading (or populating the) clean, transformed data into the custom-built data warehouse **Meghana_Swamy_DW**.
 (Refer Data-Warehousing Project file)
+
 ---
 
 ## 📚 Contents:
