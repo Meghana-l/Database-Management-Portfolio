@@ -1,0 +1,205 @@
+
+
+Meghana Lakshminarayana Swamy, CHAPTER 7 CASE 2
+
+2.1
+SELECT  OrderID, OrderDate, PackagingType, PackageWeight,InvoiceAmount,FulfillmentCost
+FROM Orders
+WHERE PackagingType LIKE '[cm]%'
+
+2.2
+SELECT  OrderID, OrderDate, PackagingType, PackageWeight,InvoiceAmount,FulfillmentCost
+FROM Orders
+WHERE OrderDate BETWEEN '2022-11-01' AND '2022-11-30'
+
+2.3
+SELECT  OrderID, OrderDate, PackagingType, PackageWeight,InvoiceAmount,FulfillmentCost
+FROM Orders
+WHERE InvoiceAmount BETWEEN 100 AND 300
+ORDER BY InvoiceAmount DESC
+
+2.4
+SELECT  OrderID, OrderDate, PackagingType, PackageWeight,InvoiceAmount,FulfillmentCost
+FROM Orders
+WHERE PackagingType LIKE '% %'
+
+
+2.5
+SELECT  OrderID, OrderDate, PackagingType, PackageWeight,InvoiceAmount,FulfillmentCost
+FROM Orders
+WHERE PackageWeight NOT LIKE '[1-6]%'
+ORDER BY PackageWeight
+
+---------------------------------------------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 8 CASE 2
+
+2.1
+SELECT OrderID, OrderDate, ShippedDate, BoxType, PackageWeight,MaterialCost
+FROM Orders
+WHERE OrderDate >= '2022-04-01' AND OrderDate <= '2022-04-30'
+ORDER BY OrderDate DESC
+
+2.2
+SELECT OrderID, OrderDate, ShippedDate, BoxType, PackageWeight,MaterialCost
+FROM Orders
+WHERE
+    (Orderdate >= '2020-03-01' AND OrderDate <= '2020-04-30')
+ OR (Orderdate >= '2021-03-01' AND OrderDate <= '2021-04-30')
+ OR (Orderdate >= '2022-03-01' AND OrderDate <= '2022-04-30')
+ ORDER BY OrderDate DESC
+
+ 2.3
+SELECT OrderID, OrderDate, ShippedDate, BoxType, PackageWeight,MaterialCost
+FROM Orders
+WHERE MaterialCost >=30 AND MaterialCost<=40
+ORDER BY MaterialCost
+
+2.4
+SELECT OrderID, OrderDate, ShippedDate, BoxType, PackageWeight,MaterialCost
+FROM Orders
+WHERE 
+      PackageWeight <> 30
+  AND PackageWeight <> 35
+  AND PackageWeight <> 40
+ORDER BY PackageWeight DESC
+
+2.5 
+SELECT OrderID, OrderDate, ShippedDate, BoxType, PackageWeight,MaterialCost
+FROM Orders
+WHERE 
+     BoxType = 'Telescopic'
+  OR BoxType = 'Side Loading'
+  OR BoxType = 'Cube'
+
+-------------------------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 9 CASE 2
+
+2.1
+SELECT OrderID, ShippedDate, QuotationAmount, ProcessingCost, DailyInventoryCost
+FROM Orders
+WHERE ShippedDate BETWEEN '2022-04-01' AND '2022-12-31'
+ORDER BY ShippedDate DESC
+
+2.2
+SELECT OrderID, ShippedDate, QuotationAmount, ProcessingCost, DailyInventoryCost
+FROM Orders
+WHERE ShippedDate BETWEEN '2022-06-01' AND '2022-12-31' AND
+QuotationAmount BETWEEN 200 AND 300
+ORDER BY QuotationAmount DESC
+
+2.3
+SELECT OrderID, ShippedDate, QuotationAmount, ProcessingCost, DailyInventoryCost
+FROM Orders
+WHERE MONTH(ShippedDate) = 6
+AND ProcessingCost NOT BETWEEN 2 AND 4
+
+2.4
+SELECT OrderID, ShippedDate, QuotationAmount, ProcessingCost, DailyInventoryCost
+FROM Orders
+WHERE YEAR(ShippedDate) = 2022
+AND QuotationAmount BETWEEN 0 AND 50
+ORDER BY QuotationAmount
+
+2.5
+SELECT OrderID, ShippedDate, QuotationAmount, ProcessingCost, DailyInventoryCost
+FROM Orders
+WHERE ShippedDate BETWEEN '2022-07-01' AND '2022-11-30' 
+AND ( MONTH(ShippedDate)=7 OR MONTH(ShippedDate)=9 OR MONTH(ShippedDate)=11)
+AND DailyInventoryCost BETWEEN 5 AND 10
+ORDER BY DailyInventoryCost DESC
+
+---------------------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 10 CASE 2
+
+2.1
+SELECT  SalesRepID, FirstName, LastName, City, Zip, Salary, Bonus,DateOfHire
+FROM SalesReps
+WHERE Zip IN (22459,12189)
+
+2.2
+SELECT  SalesRepID, FirstName, LastName, City, Zip, Salary, Bonus,DateOfHire
+FROM SalesReps
+WHERE DateofHire IN ('2021-06-12','2021-05-12')
+
+2.3
+SELECT  SalesRepID, FirstName, LastName, City, Zip, Salary, Bonus,DateOfHire
+FROM SalesReps
+WHERE SalesRepID NOT IN
+(SELECT SalesRepID FROM Orders 
+WHERE OrderDate BETWEEN '2022-12-17' AND '2022-12-31')
+
+2.4
+SELECT  SalesRepID, FirstName, LastName, City, Zip, Salary, Bonus,DateOfHire
+FROM SalesReps
+WHERE SalesRepID IN
+(SELECT SalesRepID FROM Orders
+WHERE InvoiceAmount > 500)
+
+2.5 PaymentType = COD
+SELECT  SalesRepID, FirstName, LastName, City, Zip, Salary, Bonus,DateOfHire
+FROM SalesReps
+WHERE SalesRepID IN
+(SELECT SalesRepID FROM Orders
+WHERE PaymentType = 'COD')
+
+---------------------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 11 CASE 2
+
+2.1 
+SELECT DISTINCT MembershipType
+FROM Customers
+ORDER BY MembershipType
+
+2.2
+SELECT DISTINCT ContainerType, ProductWeight
+FROM Products
+ORDER BY ContainerType
+
+2.3 
+SELECT DISTINCT City, Count(*) AS CountNumber
+FROM SalesReps
+GROUP BY City
+
+2.4
+SELECT DISTINCT Discount
+FROM JoinOrdersProducts
+ORDER BY Discount DESC
+
+2.5
+SELECT DISTINCT Discount, Count(*) AS ProductNumber
+FROM JoinOrdersProducts
+GROUP BY Discount
+
+---------------------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 12 CASE 2
+
+2.1
+SELECT TOP 4 FirstName, LastName, Salary, Bonus, DateOfHire, DateOfBirth
+FROM SalesReps
+ORDER BY DateofHire
+
+2.2
+SELECT TOP 4 FirstName, LastName, Salary, Bonus, DateOfHire, DateOfBirth
+FROM SalesReps
+ORDER BY DateofHire DESC
+
+2.3
+SELECT TOP 5 OrderID, Sum(([unitprice]*[quantity])) AS OrderAmount
+FROM JoinOrdersProducts
+GROUP BY OrderID
+ORDER BY OrderAmount DESC
+
+2.4 
+SELECT TOP 5 OrderID, Sum(([unitprice]*[quantity])) AS OrderAmount
+FROM JoinOrdersProducts
+WHERE ProductID IN
+(SELECT ProductID FROM Products 
+ WHERE ProductName = 'California Original Pistachios')
+GROUP BY OrderID
+ORDER BY OrderAmount DESC
+
+2.5 
+SELECT TOP 3  SalesRepID, Count(*) AS CountOfOrders
+FROM Orders
+GROUP BY SalesRepID
+ORDER BY CountOfOrders DESC

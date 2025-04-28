@@ -1,0 +1,100 @@
+Meghana Lakshminarayana Swamy, CHAPTER 24 CASE 2
+
+2.1 SELECT  CustomerState,
+    [14] AS '14',
+    [15] AS '15',
+    [16] AS '16',
+    [17] AS '17',
+    [18] AS '18'
+FROM  (SELECT CustomerState, DATEPART(WEEK, OrderDate) AS WeekNumber,SUM(Quantity*UnitPrice) AS TotalOrderAmount FROM tble_dates WHERE tble_dates.OrderDate >= '2022-04-01'  AND tble_dates.OrderDate < '2022-05-01' GROUP BY CustomerState, DATEPART(WEEK, OrderDate)) AS SourceTable PIVOT (SUM(TotalOrderAmount) FOR WeekNumber IN ([14], [15], [16], [17], [18])) AS CrossTabTable ORDER BY CustomerState
+
+2.2 
+SELECT Year(OrderDate) AS OrderYear, DatePart(WEEK, OrderDate) AS Week, SUM(Quantity*UnitPrice) AS TotalOrderAmount FROM tble_dates WHERE DatePart(WEEK, OrderDate) = 50 AND Month(OrderDate) = 12 AND Year(OrderDate) IN (2020, 2021, 2022) GROUP BY Year(OrderDate), DatePart(ww, OrderDate) ORDER BY Year(OrderDate)
+
+2.3 
+SELECT CustomerCity, SUM(Quantity*UnitPrice) AS TotalOrderAmount FROM tble_dates WHERE Year(OrderDate) = 2022 AND Month(OrderDate) IN (1, 5, 9) GROUP BY CustomerCity ORDER BY TotalOrderAmount DESC
+
+2.4 
+SELECT OrderID, customerlastname, orderdate, DATEADD(day, 10, orderdate) AS RequiredArrivalDate FROM tble_dates
+
+2.5 
+SELECT Distinct SalesRepLastName, DATEDIFF(year, SalesRepDateofHire, GETDATE()) AS YearsWithCompany FROM tble_Dates
+
+--------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 25 CASE 2
+
+2.1 
+UPDATE tbls_SalesReps_upd SET City = 'Los Angeles' WHERE LastName = 'Anderson' AND FirstName = 'John'
+
+2.2 
+UPDATE tbls_SalesReps_upd SET Zip = '83044', DateOfHire = '2018-05-10' WHERE LastName = 'Williams' AND FirstName = 'Gerald'
+
+2.3 
+UPDATE tbls_products_upd SET ProductPrice = ProductPrice + 10 WHERE ProductPrice < 30
+
+2.4 
+UPDATE tbls_products_upd SET ProductPrice = CASE WHEN SupplierID = 1 THEN ProductPrice * 1.20 WHEN SupplierID = 3 THEN ProductPrice *1.10 WHEN SupplierID = 7 THEN ProductPrice * 1.04 WHEN SupplierID = 9 THEN ProductPrice * 1.0 END WHERE SupplierID IN (1, 3, 7, 9)
+
+2.5 
+UPDATE tbls_products_upd SET ProductPrice = ProductPrice - 4 WHERE ProductID IN (SELECT ProductID FROM JoinOrdersProducts WHERE ProductPrice >= 32)
+
+--------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 26 CASE 2
+
+2.1 
+DELETE FROM tble_orders_del WHERE CustomerID = (SELECT CustomerID FROM tbls_customers_upd WHERE lastname = 'Zartons' AND firstname = 'Lisa' AND city = 'Los Angeles')
+
+2.2 
+DELETE FROM tble_orders_del WHERE SalesRepID = 2 AND ShippingCost = 21
+
+2.3 
+DELETE FROM tble_orders_del WHERE OrderDate < '2022-01-01'
+
+2.4 
+DELETE FROM tble_orders_del WHERE SalesRepID IN (SELECT SalesRepID FROM tbls_SalesReps_upd WHERE City = 'Dallas')
+
+2.5 
+DELETE FROM tble_orders_del WHERE OrderDate BETWEEN '2022-01-01' AND '2022-01-31' AND ShipperID IN (SELECT ShipperID FROM ShippingCompanies WHERE City = 'Boston')
+
+
+--------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 27 CASE 2
+
+2.1 
+SELECT S.CompanyName, S.ContactName, S.ContactTitle FROM Suppliers S INNER JOIN tbls_products_joins TPJ ON S.SupplierID = TPJ.ProductID WHERE TPJ.Comp2 IS NOT NULL GROUP BY S.CompanyName, S.ContactName, S.ContactTitle
+
+2.2 
+SELECT Suppliers.CompanyName, Suppliers.ContactName, Suppliers.ContactTitle,tble_products_joins.ProductName, tble_products_joins.ProductPrice, tble_products_joins.UnitsInStock FROM Suppliers LEFT JOIN tble_products_joins ON Suppliers.SupplierID = tble_products_joins.SupplierID ORDER BY tble_products_joins.ProductName ASC
+
+2.3 
+SELECT s.CompanyName, s.ContactName, s.ContactTitle, p.ProductName, p.ProductPrice, p.UnitsInStock FROM tble_products_joins p LEFT JOIN Suppliers s ON p.SupplierID = s.SupplierID ORDER BY s.CompanyName ASC
+
+2.4
+SELECT ProductName,SupplierID ,ProductPrice, UnitsInStock, ReorderLevel FROM tble_products_joins WHERE SupplierID NOT IN (SELECT SupplierID FROM Suppliers)
+
+SELECT ProductName,SupplierID ,ProductPrice, UnitsInStock, ReorderLevel FROM tble_products_joins WHERE SupplierID IS NULL
+
+2.5 SELECT p.ProductName, p.SupplierID, p.ProductPrice, p.QuantityPerUnit FROM tble_products_joins p LEFT JOIN Suppliers s ON p.SupplierID = s.SupplierID WHERE s.SupplierID IS NULL
+
+
+--------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 28 CASE 2
+
+2.1 
+SELECT FirstName, LastName, Title, Department FROM SalesReps WHERE SalesRepID IN (SELECT DISTINCT SalesRepID FROM tble_orders WHERE YEAR(OrderDate) = 2022 AND MONTH(OrderDate) BETWEEN 1 AND 6)
+
+2.2 
+SELECT FirstName, LastName, Title, Department FROM SalesReps WHERE SalesRepID NOT IN (SELECT DISTINCT SalesRepID FROM tble_orders WHERE YEAR(OrderDate) = 2022 AND MONTH(OrderDate) = 6)
+
+2.3 
+SELECT OrderID, CustomerID, OrderDate, ShippingCost FROM tble_orders WHERE OrderDate = (SELECT MAX(OrderDate) FROM tble_orders)
+
+2.4 
+SELECT OrderID, CustomerID, OrderDate, ShippingCost FROM tble_orders WHERE ShippingCost > (SELECT AVG(ShippingCost) FROM tble_orders) ORDER BY OrderID ASC
+
+2.5 
+SELECT PackagingType,
+    SUM(CASE WHEN YEAR(OrderDate) = 2020 THEN 1 ELSE 0 END) AS Orders_2020,
+    SUM(CASE WHEN YEAR(OrderDate) = 2021 THEN 1 ELSE 0 END) AS Orders_2021,
+    SUM(CASE WHEN YEAR(OrderDate) = 2022 THEN 1 ELSE 0 END) AS Orders_2022
+  FROM tble_orders GROUP BY PackagingType

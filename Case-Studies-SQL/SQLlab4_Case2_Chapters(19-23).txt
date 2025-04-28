@@ -1,0 +1,192 @@
+Meghana Lakshminarayana Swamy, CHAPTER 19 CASE 2
+
+2.1
+SELECT lastname, firstname, city, state, zip
+FROM Customers
+UNION
+SELECT lastname, firstname, city, state, zip
+FROM SalesReps
+UNION
+SELECT companyname, contactname, city, state, zip
+FROM Suppliers
+
+2.2
+SELECT lastname, firstname, city, state, zip INTO tbls_greeting_cards
+FROM Customers
+UNION
+SELECT lastname, firstname, city, state, zip
+FROM SalesReps
+UNION
+SELECT companyname, contactname, city, state, zip
+FROM Suppliers
+
+2.3
+SELECT 'Local' As DisCenter, SKU, count(UnitsInStock) AS NumberOfProducts
+FROM tbls_products_local
+GROUP BY SKU
+UNION
+SELECT 'Regional' As Center, SKU, Count(UnitsInStock) AS NumberOfProducts
+FROM tbls_products_regional
+GROUP BY SKU
+
+2.4 SELECT* FROM tbls_products_local
+SELECT SKU, count(SKU) AS NumberOfProducts
+FROM tbls_products_local
+GROUP BY SKU
+UNION
+SELECT SKU, Count(SKU) AS NumberOfProducts
+FROM tbls_products_regional
+GROUP BY SKU
+
+2.5
+SELECT SKU, count(SKU) AS NumberOfProducts
+FROM tbls_products_local
+WHERE ProductPrice BETWEEN 20 and 35 
+GROUP BY SKU
+HAVING count(SKU)>1
+UNION
+SELECT SKU, Count(SKU) AS NumberOfProducts
+FROM tbls_products_regional
+WHERE ProductPrice BETWEEN 20 and 35 
+GROUP BY SKU
+HAVING count(SKU)>1
+
+--------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 20 CASE 2
+
+2.1 
+SELECT  CompanyName, City, State, Phone
+FROM  ShippingCompanies
+LEFT JOIN tbls_orders ON tbls_orders.ShipperID = ShippingCompanies.ShipperID
+WHERE tbls_orders.ShipperID IS NULL
+
+2.2
+SELECT  CompanyName, City, State, Phone
+FROM  ShippingCompanies
+LEFT JOIN tbls_orders ON tbls_orders.ShipperID = ShippingCompanies.ShipperID
+AND tbls_orders.OrderDate BETWEEN '2022-07-01' AND '2022-12-31'
+WHERE tbls_orders.OrderID IS NULL 
+
+2.3
+SELECT o.OrderID, o.ShipperID, o.OrderDate, o.ShippedDate, o.ShippingCost
+FROM tbls_Orders AS o
+LEFT JOIN ShippingCompanies AS sc ON o.ShipperID = sc.ShipperID
+WHERE sc.ShipperID IS NULL
+
+2.4
+SELECT DISTINCT sc.CompanyName, sc.City, sc.State, sc.Phone
+FROM ShippingCompanies sc
+INNER JOIN tbls_Orders o ON sc.ShipperID = o.ShipperID
+
+2.5
+SELECT DISTINCT sc.CompanyName, sc.City, sc.State, sc.Phone
+FROM ShippingCompanies sc
+LEFT JOIN  tbls_Orders o ON sc.ShipperID = o.ShipperID
+WHERE o.ShippedDate BETWEEN '2022-12-10' AND '2022-12-31'
+
+--------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 21 CASE 2
+
+2.1
+SELECT ProductID, OrderID, UnitPrice, Quantity
+FROM tbls_joinOrdersProducts_n
+WHERE Quantity IS NULL
+
+2.2
+SELECT Count(*) As NumberOfNulls
+FROM  tbls_joinOrdersProducts_n
+WHERE UnitPrice IS NULL 
+
+2.3 
+SELECT 
+ProductID, 
+COUNT(DISTINCT OrderID) AS TotalOrders,
+SUM(UnitPrice * Quantity) AS TotalOrderAmount,
+AVG(UnitPrice * Quantity) AS AvgOrderAmount
+FROM tbls_joinOrdersProducts_n
+GROUP BY ProductID
+
+2.4
+SELECT OrderID, ProductID, UnitPrice, Quantity, Discount
+FROM tbls_joinOrdersProducts_n
+WHERE UnitPrice IS NULL OR Quantity IS NULL
+
+2.5
+SELECT 
+ProductID,
+COUNT(DISTINCT OrderID) AS TotalOrders,
+SUM(UnitPrice * Quantity) AS TotalOrderAmount,
+AVG(UnitPrice * Quantity) AS AvgOrderAmount
+FROM tbls_joinOrdersProducts_n
+WHERE UnitPrice IS NOT NULL AND Quantity IS NOT NULL
+GROUP BY ProductID
+
+--------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 22 CASE 2
+
+2.1
+SELECT ProductName, QuantityPerUnit, 
+CAST(ProductUnitPrice AS DECIMAL) AS ProductUnitPrice,
+UnitsInStock, UnitsOnOrder
+FROM tble_products_conversion
+
+SELECT ProductName, QuantityPerUnit, 
+CAST(ProductUnitPrice AS INT) AS ProductUnitPrice,
+UnitsInStock, UnitsOnOrder
+FROM tble_products_conversion
+
+2.2
+SELECT ProductName, QuantityPerUnit, 
+CONVERT(DECIMAL, ProductUnitPrice) AS ProductUnitPrice,
+UnitsInStock, UnitsOnOrder
+FROM tble_products_conversion
+
+SELECT ProductName, QuantityPerUnit, 
+CONVERT(INT,ProductUnitPrice) AS ProductUnitPrice,
+UnitsInStock, UnitsOnOrder
+FROM tble_products_conversion
+
+2.3
+SELECT ProductName,ProductUnitPrice, UnitsInStock, UnitsOnOrder, 
+CAST(CatalogLastUpdated AS DATE) AS CatalogLastUpdated
+FROM tble_products_conversion
+
+2.4
+SELECT ProductName,ProductUnitPrice, UnitsInStock, UnitsOnOrder, 
+Year(CAST(CatalogLastUpdated AS DATE)) AS CatalogLastUpdated
+FROM tble_products_conversion
+
+2.5
+SELECT 
+ProductName, 
+CAST(UnitsInStock AS INT) + CAST(UnitsOnOrder AS INT) AS TotalInventoryUnits
+FROM tble_products_conversion
+
+--------------------------------------------------------------------------------------
+Meghana Lakshminarayana Swamy, CHAPTER 23 CASE 2
+
+2.1
+SELECT LEFT(ProductName,charindex('-',ProductName)-1) AS NewProductName, ProductUnitPrice
+FROM tble_products_strings
+WHERE charindex('-',ProductName) > 0
+
+2.2
+SELECT REPLACE(ProductName, 'oz.','grams.') AS NewProductName, ProductUnitPrice
+FROM tble_products_strings
+
+2.3
+SELECT LEFT(SupplierID, charindex('-',SupplierID)-1) AS SupplierID, ProductName
+FROM tble_products_strings
+WHERE charindex('-',SupplierID) > 0
+
+2.4
+SELECT LEFT(SupplierID, charindex('-',SupplierID)-1) AS SupplierRegion,
+SUM(ProductUnitPrice * UnitsInStock) AS TotalValueInStock
+FROM tble_products_strings
+GROUP BY LEFT(SupplierID, charindex('-',SupplierID)-1)
+
+2.5
+SELECT RIGHT(SupplierID, 3) AS ProductFamily, 
+SUM(ProductUnitPrice * UnitsInStock) AS TotalValueInStock
+FROM tble_Products_Strings
+GROUP BY RIGHT(SupplierID, 3)
