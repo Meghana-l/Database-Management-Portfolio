@@ -7,8 +7,8 @@ The work is inspired by real-world scenarios and developed as part of my advance
 
 ## 📚 Portfolio Sections
 - **SQL Projects:** Complex querying, database schema creation, view and stored procedure development, and query optimization.
-- **ETL Projects:** End-to-end ETL pipeline designs for data integration and transformation using SSIS.
 - **Data Warehousing:** Star schema and snowflake schema modeling, data warehouse implementation.
+- **ETL Projects:** End-to-end ETL pipeline designs for data integration and transformation using SSIS.
 - **OLAP Cube:** Development of multidimensional OLAP cubes for fast, analytical reporting.
 
 ## 🚀 Technologies Used
