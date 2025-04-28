@@ -41,7 +41,7 @@ The conceptual dimensional model was designed based on the following business re
 - **Slowly Changing Dimensions (SCD):**  
   Certain attributes across dimensional tables are tracked using SCD Type II methodology, with additional housekeeping columns (`StartDate`, `EndDate`, `ChangeReason`) to maintain history.
 
-**Refer DataWarehouse_ConceptualModel.xlsx to view the Conceptual model**
+Refer DataWarehouse_ConceptualModel.xlsx to view the Conceptual model
 ---
 
 ## 🏗️ Physical Model - Initial Design 
