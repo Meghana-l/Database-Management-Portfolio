@@ -41,7 +41,7 @@ NOTE: Each text file follows a consistent formatting:
 - Microsoft SQL Server 2022
 - SQL Server Management Studio (SSMS)
 
----  
+
 Feel free to browse through the `.txt` files to see the full solutions.
 
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-Relational%20Database-blue)
