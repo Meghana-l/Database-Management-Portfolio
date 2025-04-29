@@ -31,8 +31,8 @@ Additionally, ETL DW projects involve loading (or populating the) clean, transfo
 ---
 
 ## 🚀 Projects
-`NOTE: In the SSMS Results uploaded, there are duplicate rows due to multiple running of the etl packages. 
-Ignore the number of rows in the Database`
+*NOTE: In the SSMS Results uploaded, there are duplicate rows due to multiple running of the etl packages. 
+Ignore the number of rows in the Database*
 
 
 ### 📦 ETL Project 1 – RDBMS to RDBMS
@@ -152,9 +152,8 @@ Ignore the number of rows in the Database`
 ---
 
 ### 📦 ETL Project 7 – Fuzzy Lookup
-**Business Goal:**  
-Segment customers based on fuzzy matching of addresses (Street, Avenue, etc.).
-
+**Business Goal:** Customer Segmentation based on our customers’ address information.
+**Technical Goal:** Create a fuzzy lookup transformation to identify customers in streets and avenues.
 **Tasks Used:**
 - Data Flow Task
 - OLE DB Source
@@ -164,15 +163,14 @@ Segment customers based on fuzzy matching of addresses (Street, Avenue, etc.).
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_Project7_Package](./screenshots/ETL_Project7_Package.png)
+![P7](https://github.com/user-attachments/assets/51507cbd-65a0-4cdb-ab51-ba4a8eb73c8c)
 - SSMS Result in BI_Database:  
-  ![ETL_Project7_Result](./screenshots/ETL_Project7_Result.png)
-
+![Screenshot 2025-04-28 221116](https://github.com/user-attachments/assets/81a02bb2-7b9c-4657-b1e8-44cb023e49de)
 ---
 
 ### 📦 ETL Project 8 – XML Data Import
-**Business Goal:**  
-Import order data from an XML file into a relational database (`BI_Database`).
+**Business Goal:** We connect to an XML files that contains order data from one of our customers. We import all data at once instead of typing each order separately. 
+**Technical Goal:** Import order data from an XML file into a relational database (`BI_Database`).
 
 **Tasks Used:**
 - Data Flow Task
@@ -182,9 +180,9 @@ Import order data from an XML file into a relational database (`BI_Database`).
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_Project8_Package](./screenshots/ETL_Project8_Package.png)
+  ![P8](https://github.com/user-attachments/assets/12a8948c-5576-47b9-a7ab-6f1a17784f82)
 - SSMS Result in BI_Database:  
-  ![ETL_Project8_Result](./screenshots/ETL_Project8_Result.png)
+  ![Screenshot 2025-04-28 222101](https://github.com/user-attachments/assets/75d1d5c2-c322-4921-bdfd-81034b08051c)
 
 ---
 
