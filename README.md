@@ -15,7 +15,7 @@ The work is inspired by real-world scenarios and developed as part of my advance
 ## 🚀 Technologies Used
 - Microsoft SQL Server
 - SSIS (SQL Server Integration Services)
-- Visual Studio (Integration Services Projects)
+- Visual Studio 2022 (Integration Services Projects)
 - SSAS (SQL Server Analysis Services)
 - T-SQL, DDL, DML
 
