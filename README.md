@@ -19,4 +19,13 @@ The work is inspired by real-world scenarios and developed as part of my advance
 - SSAS (SQL Server Analysis Services)
 - T-SQL, DDL, DML
 
+<div>
 
+<img src="https://img.shields.io/badge/T--SQL-Relational%20Database-blue" alt="T-SQL Badge" /> 
+<img src="https://img.shields.io/badge/SSMS-Management%20Studio-lightgrey" alt="SSMS Badge" /> 
+<img src="https://img.shields.io/badge/SSIS-ETL%20Workflows-orange" alt="SSIS Badge" />
+<img src="https://img.shields.io/badge/Data%20Warehousing-Star%20Schema%20Modeling-brightgreen" alt="Data Warehousing Badge" />
+<img src="https://img.shields.io/badge/OLAP-Cube%20Analytics-blueviolet" alt="OLAP Cube Badge" />
+<img src="https://img.shields.io/badge/Visual%20Studio-Integration%20Services-purple" alt="Visual Studio Badge" />
+
+</div>
