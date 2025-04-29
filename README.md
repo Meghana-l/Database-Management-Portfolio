@@ -19,11 +19,4 @@ The work is inspired by real-world scenarios and developed as part of my advance
 - SSAS (SQL Server Analysis Services)
 - T-SQL, DDL, DML
 
-## 🛠️ Tech Stack
-- T-SQL
-- Data Warehousing (Star Schema, Snowflake Schema)
-- ETL Development (SSIS)
-- OLAP Cube (SSAS)
-- Microsoft SQL Server
-- SQL Server Management Studio (SSMS)
-- Visual Studio (Integration Services Projects)
+
