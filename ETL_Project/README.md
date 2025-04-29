@@ -31,10 +31,12 @@ Additionally, ETL DW projects involve loading (or populating the) clean, transfo
 ---
 
 ## 🚀 Projects
+`NOTE: In the SSMS Results uploaded, there are duplicate rows due to multiple running of the etl packages. 
+Ignore the number of rows in the Database`
+
 
 ### 📦 ETL Project 1 – RDBMS to RDBMS
-**Business Goal:**  
-Transfer order data from a transactional relational database (`PracticeDatabase`) to a new relational database (`BI_Database`).
+**Business Goal:**  Transfer order data from a transactional relational database (`PracticeDatabase`) to a new relational database (`BI_Database`).
 
 **Tasks Used:**
 - Data Flow Task
@@ -50,8 +52,8 @@ Transfer order data from a transactional relational database (`PracticeDatabase`
 ---
 
 ### 📦 ETL Project 2 – Import Export Wizard
-**Business Goal:**  
-Transfer customer data from a flat text file (Refer - Customers.txt) into a relational database (`BI_Database`) using the Import-Export Wizard.
+**Business Goal:** Transfer Customer data from a text file to a relational database.
+**Technical Goal:** Transfer customer data from a flat text file (Refer - Customers.txt) into a relational database (`BI_Database`) using the Import-Export Wizard.
 
 **Tasks Used:**
 - Flat File Source
@@ -67,8 +69,8 @@ Transfer customer data from a flat text file (Refer - Customers.txt) into a rela
 ---
 
 ### 📦 ETL Project 3 – Conditional Split
-**Business Goal:**  
-Transfer inventory information by splitting data conditionally (e.g., Products to order, Products on order).
+**Business Goal:** Transfer inventory information from one transactional database to another following conditional business rules.
+**Technical Goal:** Transfer inventory information by splitting data conditionally (e.g., Products to order, Products on order).
 
 **Tasks Used:**
 - Data Flow Task
@@ -89,8 +91,8 @@ Transfer inventory information by splitting data conditionally (e.g., Products t
 ---
 
 ### 📦 ETL Project 4 – Multicast Task
-**Business Goal:**  
-Generate multiple aggregate datasets from product data.
+**Business Goal:** Generate analytical data for the tactical and strategic levels of the corporation.
+**Technical Goal:** Generate multiple aggregate datasets from product data.
 
 **Tasks Used:**
 - Data Flow Task
@@ -101,18 +103,21 @@ Generate multiple aggregate datasets from product data.
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_Project4_Package](./screenshots/ETL_Project4_Package.png)
+![P4](https://github.com/user-attachments/assets/bce09fa5-475c-4d7c-b9d7-52fd717ffe79)
 - SSMS Result in BI_Database:  
-  a) Table - NumberOfProductsBySupplier
+  a) Table - tbl_NumberOfProductsBySupplier
 ![Screenshot 2025-04-28 210025](https://github.com/user-attachments/assets/4617e0a7-705c-4de7-b87d-34534e0ceb5c)
 
-  b) Table - 
+  b) Table - tbl_TotalValueByProduct 
+![Screenshot 2025-04-28 210812](https://github.com/user-attachments/assets/77405fbb-8034-471b-b806-2b96da8d8cbf)
 
+  c) Table - tbl_TotalUnitsInStockBySKU
+![Screenshot 2025-04-28 211013](https://github.com/user-attachments/assets/14060020-78c1-4aea-a639-b2411b86e30c)
 ---
 
 ### 📦 ETL Project 5 – Pivoting Data
-**Business Goal:**  
-Automatically generate a pivot table summarizing quantity sold by year and by state.
+**Business Goal:** Provide cross-tabbed data for usage by the tactical and strategic levels of the corporation.
+**Technical Goal:** Automatically generate a pivot table with summarized sales data at the destination database.
 
 **Tasks Used:**
 - Data Flow Task
@@ -122,15 +127,15 @@ Automatically generate a pivot table summarizing quantity sold by year and by st
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_Project5_Package](./screenshots/ETL_Project5_Package.png)
+![P5](https://github.com/user-attachments/assets/dda6f941-e562-4f01-9449-c7488f9681fd)
 - SSMS Result in BI_Database:  
-  ![ETL_Project5_Result](./screenshots/ETL_Project5_Result.png)
+![Screenshot 2025-04-28 212302](https://github.com/user-attachments/assets/e688ca36-1c06-4aea-95dd-6a349eb7d765)
 
 ---
 
 ### 📦 ETL Project 6 – Derived Column Transformation
-**Business Goal:**  
-Create calculated and concatenated fields (such as Customer Name, Order Year, Subtotals) for easier reporting.
+**Business Goal:** Load calculated and concatenated attributes to the data warehouse.  
+**Technical Goal:** Transfer data from the transactional TPS to the data warehouse using a range of functions to transform the source data.  
 
 **Tasks Used:**
 - Data Flow Task
@@ -140,9 +145,9 @@ Create calculated and concatenated fields (such as Customer Name, Order Year, Su
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_Project6_Package](./screenshots/ETL_Project6_Package.png)
+![P6](https://github.com/user-attachments/assets/60435b51-7c59-40a1-be70-7245c87c7f36)
 - SSMS Result in BI_Database:  
-  ![ETL_Project6_Result](./screenshots/ETL_Project6_Result.png)
+![Screenshot 2025-04-28 212639](https://github.com/user-attachments/assets/42d7c7b2-6999-4b39-b201-a56b5ff417e4)
 
 ---
 
