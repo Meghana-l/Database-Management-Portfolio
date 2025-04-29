@@ -185,28 +185,38 @@ Ignore the number of rows in the Database*
   ![Screenshot 2025-04-28 222101](https://github.com/user-attachments/assets/75d1d5c2-c322-4921-bdfd-81034b08051c)
 
 ---
+## 🚀 ETL DW Projects (Data Warehouse Loading)
+As part of ETL Lab Work, I designed and developed three ETL packages to move data from the operational `PracticeDatabase` into the custom-built data warehouse `Meghana_Swamy_DW`.  
+The focus was on populating three key dimension tables: `DimCustomer`, `DimProduct`, and `DimDates`.
 
-# 📚 ETL Homework Projects (Data Warehouse Loading)
+Each package extracted the necessary data, performed appropriate transformations using Derived Column tasks, and loaded the clean, structured data into the respective dimension tables.  
+Since the design of `DimCustomer` and `DimProduct` involved some SCD Type II fields, historical tracking fields were handled appropriately without implementing full SCD Type II logic inside the ETL packages.
 
-### 📦 ETL Homework Project 1 – Populate DimCustomer Table
+These projects demonstrate the ability to apply advanced ETL concepts to populate a star schema warehouse structure efficiently.
+
+**Data-Warehouse (Meghana_Swamy_DW)** - Take reference from Data Warehousing File
+![Meghana_Swamy_DWLab2_physicalModel](https://github.com/user-attachments/assets/d8ce25cf-fdfa-48dd-8c3c-2e331398e0c3)
+
+### 📦 ETL DW Project 1 – Populate DimCustomer Table
 **Business Goal:**  
 Move customer-related data into the `DimCustomer` dimension table in the `Meghana_Swamy_DW` warehouse.
 
 **Tasks Used:**
 - Data Flow Task
 - OLE DB Source
+- 
 - Derived Column Transformation (for adding historical tracking fields)
 - OLE DB Destination
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_HW1_Package](./screenshots/ETL_HW1_Package.png)
+  ![Screenshot 2025-04-28 223101](https://github.com/user-attachments/assets/ee9970f5-9d5c-4d8c-aef4-a41360c77fa7)
 - SSMS Result in Meghana_Swamy_DW:  
-  ![ETL_HW1_Result](./screenshots/ETL_HW1_Result.png)
+  ![Screenshot 2025-04-28 223828](https://github.com/user-attachments/assets/f8953f7b-d86c-4a8f-85a8-abe9d40fccf1)
 
 ---
 
-### 📦 ETL Homework Project 2 – Populate DimProduct Table
+### 📦 ETL DW Project 2 – Populate DimProduct Table
 **Business Goal:**  
 Move product-related data into the `DimProduct` dimension table in `Meghana_Swamy_DW`.
 
@@ -218,13 +228,13 @@ Move product-related data into the `DimProduct` dimension table in `Meghana_Swam
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_HW2_Package](./screenshots/ETL_HW2_Package.png)
+  ![Screenshot 2025-04-28 224706](https://github.com/user-attachments/assets/d7811c54-ef61-44d7-a6f3-94accdcdc460)
 - SSMS Result in Meghana_Swamy_DW:  
-  ![ETL_HW2_Result](./screenshots/ETL_HW2_Result.png)
+ ![Screenshot 2025-04-28 225142](https://github.com/user-attachments/assets/ce9f8de6-c9d7-47be-9151-c298fb191340)
 
 ---
 
-### 📦 ETL Homework Project 3 – Populate DimDates Table
+### 📦 ETL DW Project 3 – Populate DimDates Table
 **Business Goal:**  
 Move and derive date attributes for the `DimDates` table.
 
@@ -236,9 +246,9 @@ Move and derive date attributes for the `DimDates` table.
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_HW3_Package](./screenshots/ETL_HW3_Package.png)
+![Screenshot 2025-04-28 225402](https://github.com/user-attachments/assets/128970a1-edbf-43d6-b3ae-eb5c76c31e1a)
 - SSMS Result in Meghana_Swamy_DW:  
-  ![ETL_HW3_Result](./screenshots/ETL_HW3_Result.png)
+![Screenshot 2025-04-28 225510](https://github.com/user-attachments/assets/36868976-521a-42c3-9206-df75c5688e27)
 
 ---
 
@@ -247,3 +257,10 @@ Move and derive date attributes for the `DimDates` table.
 - SQL Server Management Studio (SSMS)
 - SQL Server Integration Services (SSIS)
 - Visual Studio 2022 (Integration Services Projects)
+
+![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-Database-blue)
+![SSMS](https://img.shields.io/badge/SSMS-Management%20Studio-lightgrey)
+![SSIS](https://img.shields.io/badge/SSIS-ETL%20Development-orange)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio-IDE-purple)
+![Data Integration](https://img.shields.io/badge/Data%20Integration-ETL%20Pipelines-brightgreen)
+![Business Intelligence](https://img.shields.io/badge/Business%20Intelligence-Data%20Warehousing-yellow)
