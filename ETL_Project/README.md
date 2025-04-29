@@ -1,6 +1,6 @@
 # ETL Projects using SSIS
 
-This folder contains ETL (Extract, Transform, Load) projects/packages designed and implemented on Visual Studio, as part of my Database Management coursework.  
+This folder contains ETL (Extract, Transform, Load) projects/packages designed and implemented on `Visual Studio 2022` , as part of my Database Management coursework.  
 The projects focus on building professional ETL pipelines using Microsoft SQL Server Integration Services (SSIS), solving real-world business integration challenges.
 
 The destination for all ETL projects is a database called **BI_Database**.  
@@ -103,7 +103,10 @@ Generate multiple aggregate datasets from product data.
 - SSIS Package Running:  
   ![ETL_Project4_Package](./screenshots/ETL_Project4_Package.png)
 - SSMS Result in BI_Database:  
-  ![ETL_Project4_Result](./screenshots/ETL_Project4_Result.png)
+  a) Table - NumberOfProductsBySupplier
+![Screenshot 2025-04-28 210025](https://github.com/user-attachments/assets/4617e0a7-705c-4de7-b87d-34534e0ceb5c)
+
+  b) Table - 
 
 ---
 
