@@ -1,6 +1,6 @@
 # ETL Projects using SSIS
 
-This folder contains ETL (Extract, Transform, Load) projects/packages designed and implemented as part of my Database Management coursework.  
+This folder contains ETL (Extract, Transform, Load) projects/packages designed and implemented on Visual Studio, as part of my Database Management coursework.  
 The projects focus on building professional ETL pipelines using Microsoft SQL Server Integration Services (SSIS), solving real-world business integration challenges.
 
 The destination for all ETL projects is a database called **BI_Database**.  
