@@ -56,7 +56,7 @@ Ignore the number of rows in the Database*
 **Technical Goal:** Transfer customer data from a flat text file (Refer - Customers.txt) into a relational database (`BI_Database`) using the Import-Export Wizard.
 
 **Tasks Used:**
-- Flat File Source
+- Flat File Source (*customers.txt* `Refer from Text and xml files.zip`)
 - OLE DB Destination
 - Data Conversion (for datatype adjustments)
 
@@ -174,7 +174,7 @@ Ignore the number of rows in the Database*
 
 **Tasks Used:**
 - Data Flow Task
-- XML Source
+- XML Source (*Orders.xml* `Refer from Text and xml files.zip`)
 - Data Conversion
 - OLE DB Destination
 
