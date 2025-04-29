@@ -51,7 +51,7 @@ Transfer order data from a transactional relational database (`PracticeDatabase`
 
 ### 📦 ETL Project 2 – Import Export Wizard
 **Business Goal:**  
-Transfer customer data from a flat text file into a relational database (`BI_Database`) using the Import-Export Wizard.
+Transfer customer data from a flat text file (Refer - Customers.txt) into a relational database (`BI_Database`) using the Import-Export Wizard.
 
 **Tasks Used:**
 - Flat File Source
@@ -60,9 +60,9 @@ Transfer customer data from a flat text file into a relational database (`BI_Dat
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_Project2_Package](./screenshots/ETL_Project2_Package.png)
+![P2](https://github.com/user-attachments/assets/0f3f2ade-2b2a-4da2-bf27-ee1a02da3dfe)
 - SSMS Result in BI_Database:  
-  ![ETL_Project2_Result](./screenshots/ETL_Project2_Result.png)
+ ![Screenshot 2025-04-28 202410](https://github.com/user-attachments/assets/fc187e14-5753-4d2e-9184-b70badda18d9)
 
 ---
 
@@ -78,9 +78,13 @@ Transfer inventory information by splitting data conditionally (e.g., Products t
 
 **Screenshots:**
 - SSIS Package Running:  
-  ![ETL_Project3_Package](./screenshots/ETL_Project3_Package.png)
+  ![P3](https://github.com/user-attachments/assets/c753a521-f840-4ea9-8b7a-2a475d45a81b)
 - SSMS Result in BI_Database:  
-  ![ETL_Project3_Result](./screenshots/ETL_Project3_Result.png)
+   a) Table - ProductsToOrder
+![Screenshot 2025-04-28 202726](https://github.com/user-attachments/assets/9b7c5db2-1be5-4447-bcf9-c5bfe200b929)
+
+  b) Table - ProductsOnOrder
+  ![Screenshot 2025-04-28 203141](https://github.com/user-attachments/assets/817156c8-c7fb-43a0-ab9b-f2e3b39d24ee)
 
 ---
 
